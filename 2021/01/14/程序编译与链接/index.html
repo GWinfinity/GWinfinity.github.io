@@ -3,21 +3,36 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Myblog | the amazing thing of think</title>
+  <title>程序编译与链接 | Myblog | the amazing thing of think</title>
 
   
   <meta name="author" content="Guo Wei">
   
 
   
+  <meta name="description" content="整个流程
+预编译
+编译
+汇编
+链接
 
+预处理预编译过程主要处理那些源文件中的以“#”开始的预编译指令，主要处理规则有：
+
+将所有的“#define”删除，并展开所用的宏定义
+处理所有条件预编译指令，比如“#if”、“#ifdef”、 “#elif”、“#endif”
+处理“#include”预编译指">
+  
+
+  
+  
+  <meta name="keywords" content="">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
+  <meta property="og:title" content="程序编译与链接"/>
 
   <meta property="og:site_name" content="Myblog"/>
 
@@ -50,12 +65,11 @@
 </header>
 
     <main class="site-main posts-loop">
-    
-  <article>
+    <article>
 
   
     
-    <h3 class="article-title"><a href="/myblog/2021/01/14/程序编译与链接/"><span>程序编译与链接</span></a></h3>
+    <h3 class="article-title"><span>程序编译与链接</span></h3>
     
   
 
@@ -112,72 +126,13 @@
   </div>
 </article>
 
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/myblog/2021/01/09/python-Jax/"><span>python Jax</span></a></h3>
-    
   
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/myblog/2021/01/09/python-Jax/" rel="bookmark">
-        <time class="entry-date published" datetime="2021-01-09T07:38:24.000Z">
-          2021-01-09
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="jax"><a href="#jax" class="headerlink" title="jax"></a>jax</h2><p>jax 是Google 开源的非官方机器学习框架，个人感觉 清爽高效。而且相对于tensorflow,pytorch 围绕张量展开计算。还是喜欢基于矩阵进行的计算。另外一点就是Jax 是jax.numpy 和 jax.scipy 是用TPU加速的。对神经网络芯片软加速有一定的借鉴意义。<br>内有两大神器</p>
-<ul>
-<li>autograd /pytorch 倒是也有</li>
-<li>xla /是一种针对特定领域的线性代数编译器<br>另一点就是</li>
-<li>Jax 重写了random算法。这个和其他的都不太一样。</li>
-</ul>
-<p>Jax的生态。从Awesome Jax 翻译过来包括以下这些。但我都没用过<br>Flax - 一个灵活的库，拥有所有JAX NN库中最大的用户群。<br>Haiku–专注于简单，由DeepMind的Sonnet作者创建。<br>Objax - 具有类似于PyTorch的面向对象设计。<br>Elegy–实现了Keras API的一些改进。<br>RLax - 实现强化学习代理的库。<br>Trax–一个 “考虑使用电池 “的深度学习库，专注于为常见工作负载提供解决方案。应该是偏节能。<br>Jraph - 一个轻量级的图神经网络库。<br>NumPyro - 基于Pyro库的概率编程。<br>Chex - 编写和测试可靠的JAX代码的实用工具。<br>Optax - 一个梯度处理和优化库。<br>JAX, M.D. - 加速的微分分子动力学。<br>Coax - 将RL论文转化为代码，简单的方法。<br>SymJAX - 符号CPU/GPU/TPU编程。<br>mcx - 为执行推理表达和编译概率程序。<br>Parallax - JAX的不可变torch 模块原型/应该算 能TPU加速的torch。<br>FedJAX - JAX中的联合学习，建立在Optax和Haiku之上。<br>jax-unirep - 为蛋白质机器学习应用实现UniRep模型的库。<br>jax-flows - 在JAX中规范化流。<br>sklearn-jax-kernels - 基于Jax 的scikit-learn kernel.<br>jax-cosmo - 一个可区分的宇宙学库。<br>efax - JAX中的指数族。<br>mpi4jax - 将MPI操作与CPU和GPU上的Jax代码相结合。</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/myblog/tags/python/">python</a><a href="/myblog/tags/jax/">jax</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
 
 
 
 
-<nav class="pagination">
-  
-  
-</nav>
+
     </main>
 
     <footer class="site-footer">
