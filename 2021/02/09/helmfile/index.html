@@ -3,21 +3,27 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Myblog | the amazing thing of think</title>
+  <title>helmfile 最佳实践指南（机翻） | Myblog | the amazing thing of think</title>
 
   
   <meta name="author" content="Guo Wei">
   
 
   
+  <meta name="description" content="本指南介绍Helmfile 用于编写高级helmfile文件所考虑的模式。它侧重于如何构建和执行helmfile文件.
+缺少键和默认值Helmfile 尽力通知用户注意潜在的错误。helmfile如何实现的一个例子是，当你试图访问环境值中缺少的键时， helmfile会失败。也就是说，下面的例子让 ">
+  
 
+  
+  
+  <meta name="keywords" content="kubernetes,yaml,template">
   
 
   <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-  
+  <meta property="og:title" content="helmfile 最佳实践指南（机翻）"/>
 
   <meta property="og:site_name" content="Myblog"/>
 
@@ -50,12 +56,11 @@
 </header>
 
     <main class="site-main posts-loop">
-    
-  <article>
+    <article>
 
   
     
-    <h3 class="article-title"><a href="/myblog/2021/02/09/helmfile/"><span>helmfile 最佳实践指南（机翻）</span></a></h3>
+    <h3 class="article-title"><span>helmfile 最佳实践指南（机翻）</span></h3>
     
   
 
@@ -180,229 +185,13 @@
   </div>
 </article>
 
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/myblog/2021/02/09/helm-常用命令/"><span>helm-常用命令</span></a></h3>
-    
   
 
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/myblog/2021/02/09/helm-常用命令/" rel="bookmark">
-        <time class="entry-date published" datetime="2021-02-09T03:36:33.000Z">
-          2021-02-09
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="helm-基本概念"><a href="#helm-基本概念" class="headerlink" title="helm 基本概念"></a>helm 基本概念</h2><p>helm 是 k8s的包管理工具。包管理方面有几个基本概念对应于helm是这样的：</p>
-<ul>
-<li>库<ul>
-<li>被称为 hub, 类似于各个镜像之间的搜索。</li>
-<li>本地用的被称为 Repository，就是 k8s的数据库</li>
-</ul>
-</li>
-<li>包<ul>
-<li>被称为chart, 可以是工具，应用，服务。</li>
-</ul>
-</li>
-<li>实例<ul>
-<li>被称为instance，chart每在集群上安装一次就会创建一个实例。</li>
-</ul>
-</li>
-</ul>
-<p>一言以蔽之。</p>
-<blockquote>
-<p>Helm installs charts into Kubernetes, creating a new release for each installation. And to find new charts, you can search Helm chart repositories.</p>
-</blockquote>
-<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ul>
-<li><p>helm search</p>
-<ul>
-<li>helm search hub chartName <strong>hub上搜索名为chartName的chart 并列出</strong></li>
-<li>helm search repo chartName <strong>本地用的repo上搜索chartName并列出</strong></li>
-</ul>
-</li>
-<li><p>helm install instanceName chartName 安装包</p>
-</li>
-<li><p>helm install foo chartName 安装本地包</p>
-</li>
-<li><p>helm update -f instanceName chartName 更新包</p>
-</li>
-<li><p>helm rollback chartName version 回滚到某个版本</p>
-</li>
-<li><p>helm unstall instanceName 删除包</p>
-</li>
-<li><p>helm list 查看所有包</p>
-</li>
-<li><p>helm show values 查看所有配置 </p>
-</li>
-</ul>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/myblog/tags/package-manager/">package manager</a><a href="/myblog/tags/kubernetes/">kubernetes</a><a href="/myblog/tags/cli/">cli</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/myblog/2021/01/14/程序编译与链接/"><span>程序编译与链接</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/myblog/2021/01/14/程序编译与链接/" rel="bookmark">
-        <time class="entry-date published" datetime="2021-01-14T12:02:30.000Z">
-          2021-01-14
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="整个流程"><a href="#整个流程" class="headerlink" title="整个流程"></a>整个流程</h2><ul>
-<li>预编译</li>
-<li>编译</li>
-<li>汇编</li>
-<li>链接</li>
-</ul>
-<h2 id="预处理"><a href="#预处理" class="headerlink" title="预处理"></a>预处理</h2><p>预编译过程主要处理那些源文件中的以“#”开始的预编译指令，主要处理规则有：</p>
-<ol>
-<li>将所有的“#define”删除，并展开所用的宏定义</li>
-<li>处理所有条件预编译指令，比如“#if”、“#ifdef”、 “#elif”、“#endif”</li>
-<li>处理“#include”预编译指令，将被包含的文件插入到该编译指令的位置，注：此过程是递归进行的</li>
-<li>删除所有注释</li>
-<li>添加行号和文件名标识，以便于编译时编译器产生调试用的行号信息以及用于编译时产生编译错误或警告时可显示行号</li>
-<li>保留所有的#pragma编译器指令。</li>
-</ol>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>编译过程就是把预处理完的文件进行一系列的词法分析、语法分析、语义分析及优化后生成相应的汇编代码文件。这个过程是整个程序构建的核心部分。</p>
-<h2 id="汇编"><a href="#汇编" class="headerlink" title="汇编"></a>汇编</h2><p>汇编器是将汇编代码转化成机器可以执行的指令，每一条汇编语句几乎都是一条机器指令。经过编译、链接、汇编输出的文件成为.o目标文件(Object File)</p>
-<h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>链接的主要内容就是把各个模块之间相互引用的部分处理好，使各个模块可以正确的拼接。<br>链接的主要过程包块 地址和空间的分配（Address and Storage Allocation）、符号决议(Symbol Resolution)和重定位(Relocation)等步骤。</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-
-    </div>
-
-    
-  </div>
-</article>
-
-
-
-  <article>
-
-  
-    
-    <h3 class="article-title"><a href="/myblog/2021/01/09/python-Jax/"><span>python Jax</span></a></h3>
-    
-  
-
-  <div class="article-top-meta">
-    <span class="posted-on">
-      <a href="/myblog/2021/01/09/python-Jax/" rel="bookmark">
-        <time class="entry-date published" datetime="2021-01-09T07:38:24.000Z">
-          2021-01-09
-        </time>
-      </a>
-    </span>
-  </div>
-
-
-  
-
-  <div class="article-content">
-    <div class="entry">
-      
-        <h2 id="jax"><a href="#jax" class="headerlink" title="jax"></a>jax</h2><p>jax 是Google 开源的非官方机器学习框架，个人感觉 清爽高效。而且相对于tensorflow,pytorch 围绕张量展开计算。还是喜欢基于矩阵进行的计算。另外一点就是Jax 是jax.numpy 和 jax.scipy 是用TPU加速的。对神经网络芯片软加速有一定的借鉴意义。<br>内有两大神器</p>
-<ul>
-<li>autograd /pytorch 倒是也有</li>
-<li>xla /是一种针对特定领域的线性代数编译器<br>另一点就是</li>
-<li>Jax 重写了random算法。这个和其他的都不太一样。</li>
-</ul>
-<p>Jax的生态。从Awesome Jax 翻译过来包括以下这些。但我都没用过<br>Flax - 一个灵活的库，拥有所有JAX NN库中最大的用户群。<br>Haiku–专注于简单，由DeepMind的Sonnet作者创建。<br>Objax - 具有类似于PyTorch的面向对象设计。<br>Elegy–实现了Keras API的一些改进。<br>RLax - 实现强化学习代理的库。<br>Trax–一个 “考虑使用电池 “的深度学习库，专注于为常见工作负载提供解决方案。应该是偏节能。<br>Jraph - 一个轻量级的图神经网络库。<br>NumPyro - 基于Pyro库的概率编程。<br>Chex - 编写和测试可靠的JAX代码的实用工具。<br>Optax - 一个梯度处理和优化库。<br>JAX, M.D. - 加速的微分分子动力学。<br>Coax - 将RL论文转化为代码，简单的方法。<br>SymJAX - 符号CPU/GPU/TPU编程。<br>mcx - 为执行推理表达和编译概率程序。<br>Parallax - JAX的不可变torch 模块原型/应该算 能TPU加速的torch。<br>FedJAX - JAX中的联合学习，建立在Optax和Haiku之上。<br>jax-unirep - 为蛋白质机器学习应用实现UniRep模型的库。<br>jax-flows - 在JAX中规范化流。<br>sklearn-jax-kernels - 基于Jax 的scikit-learn kernel.<br>jax-cosmo - 一个可区分的宇宙学库。<br>efax - JAX中的指数族。<br>mpi4jax - 将MPI操作与CPU和GPU上的Jax代码相结合。</p>
-
-      
-    </div>
-
-  </div>
-
-  <div class="article-footer">
-    <div class="article-meta pull-left">
-
-    
-
-    
-    
-
-    <span class="post-tags">
-      <i class="icon-tags"></i>
-        <a href="/myblog/tags/python/">python</a><a href="/myblog/tags/jax/">jax</a>
-    </span>
-    
-
-    </div>
-
-    
-  </div>
-</article>
 
 
 
 
-<nav class="pagination">
-  
-  
-</nav>
+
     </main>
 
     <footer class="site-footer">
